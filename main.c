@@ -13,7 +13,7 @@ struct movie
     int *movYear;
     char **movLang;
     int *langNum;
-    double *movRate;
+    float *movRate;
 
 
     struct movie *next;
@@ -35,7 +35,7 @@ struct moive *createMovie(char *currLine)
     strcpy(currMovie->movName, token);
 
     // The next token is the release year
-    int int_token = strtok_r(NULL, " ", &saveptr);
+    int int_token = NULL;
     currMovie->movYear = malloc(sizeof(int));
     currMovie->movYear = int_token;
     // The next token is the language(s)
@@ -53,16 +53,16 @@ struct moive *createMovie(char *currLine)
       }
       currMovie->movLang[i] = calloc(strlen(token) + 1, sizeof(char));
       strcpy(currMovie->movLang[i], temp); // coppy the temp into the array slot
-      i++ // Increase the total array size of the language array
-      j++ // Increase J by 1 to skip the ; between each language
+      i++; // Increase the total array size of the language array
+      j++;// Increase J by 1 to skip the ; between each language
     }
     currMovie-> langNum = i;
 
 
     // The last token is the rating
-    double double_token = strtok_r(NULL, "\n", &saveptr);
-    currMovie->movRate = malloc(sizeof(double));
-    currMovie->movRate = double_token;
+    float *float_token = NULL;
+    currMovie->movRate = malloc(sizeof(float));
+    currMovie->movRate = float_token;
 
     // Set the next node to NULL in the newly created movie entry
     currMovie->next = NULL;
