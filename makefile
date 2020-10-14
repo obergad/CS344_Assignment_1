@@ -9,7 +9,7 @@ CFLAGS = --std=gnu99
 SRCEXT = c
 
 BINDIR = .
-exe_file = $(BINDIR)/$(shell basename "${PWD}")
+exe_file = movie
 
 # Handle debug case
 DEBUG ?= 1
@@ -43,4 +43,3 @@ clean:
 	rm -rf $(BUILDDIR) $(exe_file)
 
 -include $(DEP)
-
